@@ -40,6 +40,8 @@ import UIKit
 /// to the month be in color black, while the colors of previous months be in
 /// color gray.
 public struct CellState {
+    /// returns true if a cell is Highlighted
+    public let isHighlighted: Bool
     /// returns true if a cell is selected
     public let isSelected: Bool
     /// returns the date as a string
