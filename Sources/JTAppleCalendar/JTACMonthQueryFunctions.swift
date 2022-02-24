@@ -281,6 +281,7 @@ extension JTACMonthView {
     func cellStateFromIndexPath(_ indexPath: IndexPath,
                                 withDateInfo info: (date: Date, owner: DateOwner)? = nil,
                                 cell: JTACDayCell? = nil,
+                                isHighlighted: Bool? = nil,
                                 isSelected: Bool? = nil,
                                 selectionType: SelectionType? = nil) -> CellState {
         let validDateInfo: (date: Date, owner: DateOwner)
@@ -289,7 +290,7 @@ extension JTACMonthView {
         } else {
             guard let newDateInfo = dateOwnerInfoFromPath(indexPath) else {
                 developerError(string: "Error this should not be nil. Contact developer Jay on github by opening a request")
-                return CellState(isSelected: false,
+                return CellState(isHighlighted: false, isSelected: false,
                                  text: "",
                                  dateBelongsTo: .thisMonth,
                                  date: Date(),
@@ -340,6 +341,7 @@ extension JTACMonthView {
         }
         
         let cellState = CellState(
+            isHighlighted: isHighlighted ?? (selectedCellData[indexPath] != nil) ,
             isSelected: isSelected ?? (selectedCellData[indexPath] != nil),
             text: cellText,
             dateBelongsTo: dateBelongsTo,
