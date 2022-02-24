@@ -35,6 +35,11 @@ open class JTACDayCell: UICollectionViewCell {
         set { super.isSelected = newValue}
     }
     
+    open override var isHighlighted: Bool {
+        get { return super.isHighlighted }
+        set { super.isHighlighted = newValue}
+    }
+    
     /// Cell view that will be customized
 	public override init(frame: CGRect) {
 		super.init(frame: frame)
